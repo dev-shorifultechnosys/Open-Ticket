@@ -1,0 +1,188 @@
+
+/* V16: Search-to-category spacing 24px desktop / 22px tablet / 18px mobile.
+   Only Section 02 vertical spacing changed; all other components untouched.
+   ========================================================================= */
+/* ==========================================================================
+   OPEN TICKETS — SECTION 02 / SEARCH & EVENT CATEGORIES
+   Mobile-first; scoped with .ot-discovery to avoid affecting Isotope/checkout.
+   All major colours use tokens.css; no additional framework or icon font.
+   ========================================================================= */
+:root {
+  --ot-discovery-bg: #061626;
+  --ot-discovery-control: #ffffff;
+  --ot-discovery-chip-bg: rgba(5, 20, 34, .66);
+  --ot-discovery-chip-stroke: rgba(187, 210, 232, .26);
+  --ot-discovery-height: 49px;
+}
+
+.ot-discovery {
+  position: relative;
+  z-index: 4;
+  background: var(--ot-discovery-bg);
+  color: #f6f8fc;
+  padding: 18px 0 24px;
+  box-shadow: inset 0 1px rgba(255,255,255,.08);
+}
+.ot-discovery__inner.container-xxl {max-width: var(--ot-container); padding-inline: 24px;}
+.ot-discovery__form {
+  display: grid;
+  grid-template-columns: minmax(0, 2.05fr) minmax(0, 1.15fr) minmax(0, 1fr) minmax(158px, .84fr);
+  gap: 10px;
+  align-items: stretch;
+  margin: 0;
+}
+.ot-discovery__search-control {position:relative;min-width:0;}
+.ot-discovery__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  height: var(--ot-discovery-height);
+  padding-inline: 17px 12px;
+  border: 1px solid #dde3eb;
+  border-radius: 11px;
+  background: var(--ot-discovery-control);
+  color: #09182a;
+  box-shadow: 0 4px 13px rgba(0,0,0,.08);
+}
+.ot-discovery__field > .ot-icon {width:19px;height:19px;stroke-width:1.9;}
+.ot-discovery__field .ot-discovery__field-icon--gold {color: #d79b27;stroke-width:2.25;}
+.ot-discovery__field input, .ot-discovery__field select {
+  border:0;
+  outline:none;
+  appearance:none;
+  -webkit-appearance:none;
+  width:100%;
+  min-width:0;
+  color:#102035;
+  font-weight:550;
+  font-size:13px;
+  line-height:1.5;
+  background:transparent;
+  padding:0;
+}
+.ot-discovery__field input::placeholder {color:#66788e;opacity:1;font-weight:450;}
+.ot-discovery__field select {padding-right:20px;cursor:pointer;}
+.ot-discovery__field select:focus-visible,
+.ot-discovery__field input:focus-visible {outline:none;}
+.ot-discovery__field:focus-within {border-color:#c38b2b;box-shadow:0 0 0 3px rgba(243,198,109,.24);}
+.ot-discovery__select-chevron {position:absolute;right:12px;pointer-events:none;color:#22334b; width:15px!important;height:15px!important;}
+.ot-discovery__suggestions-toggle {
+  border:0;background:transparent;display:grid;place-items:center;color:#7e91a6;
+  width:28px;min-width:28px;height:32px;border-radius:6px; padding:0;
+}
+.ot-discovery__suggestions-toggle .ot-icon {width:16px;height:16px;transition:transform .18s;}
+.ot-discovery__suggestions-toggle[aria-expanded="true"] .ot-icon {transform:rotate(180deg);}
+.ot-discovery__suggestions-toggle:hover {background:#edf3f7;}
+.ot-discovery__suggestions {
+  position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:40;
+  display:flex;flex-direction:column;gap:3px;border-radius:10px;
+  border:1px solid #e2e8ee;background:#fff;box-shadow:0 18px 45px rgba(0,0,0,.24);
+  padding:10px;color:#0c2035;
+}
+.ot-discovery__suggestions[hidden],.ot-discovery__more-panel[hidden] {display:none!important;}
+.ot-discovery__suggestions-heading {font-size:10px;font-weight:800;letter-spacing:.12em;color:#7c8a99;padding:6px 10px 2px;}
+.ot-discovery__suggestions button {border:0;background:transparent;text-align:left;padding:9px 10px;border-radius:7px;font-size:12px;color:#16263b;}
+.ot-discovery__suggestions button:hover,.ot-discovery__suggestions button:focus-visible {background:#eff3f8;}
+.ot-discovery__submit {
+  min-height:var(--ot-discovery-height);border:1px solid #f1d28a;
+  color:#061525;background:linear-gradient(100deg,#ffde94 0%,#f4c568 100%);
+  border-radius:11px;display:flex;align-items:center;justify-content:center;gap:12px;
+  font-weight:800;font-size:13px;white-space:nowrap;
+  transition:filter .2s,transform .2s;
+}
+.ot-discovery__submit .ot-icon {width:17px;height:17px;}
+.ot-discovery__submit:hover {filter:brightness(1.055);}
+.ot-discovery__submit:active {transform:translateY(1px);}
+.ot-discovery__categories {
+  display:flex;align-items:center;gap:10px;min-width:0;margin-top:24px;
+}
+.ot-discovery__category-scroll {
+  display:flex;align-items:center;gap:8px;min-width:0;flex:1;
+  overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.25) transparent;
+  padding:2px 1px 8px;
+}
+.ot-discovery__category,.ot-discovery__more {
+  border:1px solid var(--ot-discovery-chip-stroke);
+  background:var(--ot-discovery-chip-bg);
+  border-radius:8px;
+  color:#e8f0fa;
+  min-height:36px;
+  padding:7px 12px;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  white-space:nowrap;flex-shrink:0;
+  font-size:11.5px;font-weight:620;line-height:1.2;
+  transition:border-color .2s,background .2s,color .2s;
+}
+.ot-discovery__category .ot-icon,.ot-discovery__more .ot-icon {width:15px;height:15px;stroke-width:1.9;}
+.ot-discovery__category:hover,.ot-discovery__more:hover {border-color:var(--ot-gold);background:#16314a;}
+.ot-discovery__category.is-active {
+  background:linear-gradient(115deg,#f6d084,#d99c2d);
+  border-color:#efbd5e;color:#061526;font-weight:800;
+}
+.ot-discovery__more {margin-bottom:6px;padding-inline:13px;}
+.ot-discovery__more-chevron {width:12px!important;height:12px!important;transition:transform .2s;}
+.ot-discovery__more[aria-expanded="true"] .ot-discovery__more-chevron {transform:rotate(180deg);}
+.ot-discovery__more-panel {
+  display:flex;align-items:end;flex-wrap:wrap;gap:16px;
+  background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.13);
+  border-radius:11px;margin-top:8px;padding:14px 17px;
+}
+.ot-discovery__more-field {display:flex;flex-direction:column;gap:6px;}
+.ot-discovery__more-field label {font-size:11px;font-weight:700;color:#e1eaf3;}
+.ot-discovery__more-field select {border:1px solid #9fb1c0;border-radius:7px;padding:9px 28px 9px 11px;background:#fff;color:#101f33;font-size:12px;min-height:38px;}
+.ot-discovery__more-panel p {font-size:11px;color:#c5d0dc;line-height:1.5;flex:1;margin:0 0 9px;}
+.ot-discovery__reset {display:flex;align-items:center;gap:7px;border:1px solid #8a9cae;color:#f1f5fa;border-radius:7px;background:transparent;font-size:12px;padding:9px 12px;min-height:38px;}
+.ot-discovery__reset .ot-icon {width:15px;height:15px;}
+.ot-discovery__reset:hover {background:rgba(255,255,255,.12);}
+/* 1200–1399: preserve 4-field search in one row. */
+@media(max-width:1399.98px) {
+ .ot-discovery__inner.container-xxl {padding-inline:20px;}
+ .ot-discovery__form {grid-template-columns:minmax(0,1.75fr) minmax(0,1.05fr) minmax(0,.96fr) minmax(135px,.75fr);gap:8px;}
+ .ot-discovery__field {padding-inline:12px 9px;gap:8px;}
+ .ot-discovery__field input,.ot-discovery__field select {font-size:12px;}
+ .ot-discovery__category-scroll {gap:6px;}
+ .ot-discovery__category,.ot-discovery__more {font-size:11px;padding-inline:9px;}
+}
+/* Tablet: query occupies full row; remaining controls flow onto a second row. */
+@media(max-width:991.98px) {
+  .ot-discovery {padding-block:17px 21px;}
+  /* Balanced search-to-category rhythm on tablets. */
+  .ot-discovery__categories {margin-top:22px;}
+  .ot-discovery__form {grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(155px,.8fr);}
+  .ot-discovery__search-control {grid-column:1/-1;}
+  .ot-discovery__category-scroll {padding-bottom:9px;}
+  .ot-discovery__more {flex-shrink:0;}
+}
+/* Mobile: first row search, second location/date, third CTA; chips remain scrollable. */
+@media(max-width:575.98px) {
+  .ot-discovery__inner.container-xxl {padding-inline:14px;}
+  .ot-discovery__form {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:9px;}
+  .ot-discovery__search-control {grid-column:1/-1;}
+  .ot-discovery__submit {grid-column:1/-1;}
+  .ot-discovery__field {height:45px;padding-inline:10px 7px;gap:7px;border-radius:9px;}
+  .ot-discovery__field >.ot-icon {width:16px;height:16px;}
+  .ot-discovery__field input,.ot-discovery__field select {font-size:11px;}
+  .ot-discovery__select-chevron {right:7px;width:13px!important;height:13px!important;}
+  .ot-discovery__field select {padding-right:15px;}
+  .ot-discovery__submit {min-height:43px;font-size:12px;border-radius:9px;}
+  .ot-discovery__categories {align-items:stretch;gap:8px;margin-top:18px;}
+  .ot-discovery__category-scroll {padding-block:2px 7px;}
+  .ot-discovery__category,.ot-discovery__more {min-height:37px;font-size:11px;}
+  .ot-discovery__more {padding:7px 8px;margin-bottom:7px;}
+  .ot-discovery__more span {display:none;}
+  .ot-discovery__more-chevron {display:none!important;}
+  .ot-discovery__more-panel {align-items:stretch;flex-direction:column;gap:12px;}
+  .ot-discovery__more-panel p {margin:0;}
+}
+@media(prefers-reduced-motion:reduce) {
+  .ot-discovery__category,.ot-discovery__more,.ot-discovery__submit,.ot-discovery__more-chevron {transition:none!important;}
+}
+/* 320–359px: give both native selects a whole row to prevent label clipping. */
+@media (max-width:359.98px) {
+  .ot-discovery__form {grid-template-columns: minmax(0, 1fr);}
+  .ot-discovery__search-control, .ot-discovery__submit {grid-column:1;}
+  .ot-discovery__field select {font-size:12px;}
+}

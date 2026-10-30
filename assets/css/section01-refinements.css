@@ -1,0 +1,236 @@
+/* ===========================================================================
+   OPEN TICKETS — SECTION 01 / V2 VISUAL REFINEMENT
+   Scope: original user-supplied logo, five unique cinematic backgrounds,
+   sharp uncropped banner display, right-aligned event selector, WCAG motion.
+   This layer contains design adjustments only. No Isotope/booking CSS touched.
+=========================================================================== */
+
+/* 01 / Logo: use the supplied transparent PNG at its natural aspect ratio. */
+.ot-brand {
+  min-width: 106px;
+  height: 100%;
+  overflow: visible;
+}
+.ot-brand img {
+  display: block;
+  width: 110px;
+  height: auto;
+  max-height: 65px;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+}
+.ot-header.is-scrolled .ot-brand img {
+  width: 97px;
+  height: auto;
+  max-height: 52px;
+}
+
+/* 02 / Five independent full-bleed backgrounds: crossfade + subtle camera drift.
+   A strong dark gradient keeps header, hero copy and card text legible. */
+.ot-hero__backgrounds {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #071729;
+}
+.ot-hero__background {
+  position: absolute;
+  inset: -3%;
+  opacity: 0;
+  background-image: var(--scene);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.04);
+  transition: opacity 1.25s cubic-bezier(.25,.75,.25,1), transform 9s linear;
+  will-change: opacity, transform;
+}
+.ot-hero__background.is-active {
+  opacity: 1;
+  transform: scale(1.12);
+}
+.ot-hero__ambient {
+  background:
+    linear-gradient(90deg,rgba(3,16,29,.96) 0%,rgba(4,17,30,.88) 18%,rgba(5,18,32,.29) 43%,rgba(4,13,26,.24) 66%,rgba(3,13,25,.76) 100%),
+    linear-gradient(0deg,rgba(3,11,22,.94) 0%,transparent 35%,rgba(4,17,31,.08) 74%);
+}
+
+/* 03 / Keep copy in the familiar column, while shifting spotlight + rail
+   right by using the canvas all the way to a narrow right-side gutter. */
+@media (min-width: 1400px) {
+  .ot-hero__inner.container-xxl {
+    max-width: none;
+    padding-left: max(26px,calc((100vw - var(--ot-container)) / 2 + 24px));
+    padding-right: clamp(18px,2.0vw,34px);
+    grid-template-columns: minmax(300px,365px) minmax(40px,1fr) minmax(320px,385px) minmax(175px,224px);
+    column-gap: 16px;
+  }
+  .ot-spotlight {height: 432px;}
+  .ot-hero__rail {gap: 13px;}
+  .ot-mini-card {min-height: 129px;}
+}
+
+/* 04 / Event art: preserve its complete horizontal promotional composition.
+   Poster text stays legible instead of being stretched into a portrait crop. */
+.ot-spotlight {
+  background: #071829;
+  border-color: rgba(255,255,255,.28);
+}
+.ot-spotlight__visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56%;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  background: #162335;
+}
+.ot-spotlight__visual::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -12px;
+  background-image: var(--poster);
+  background-size: cover;
+  background-position: center;
+  filter: blur(11px) brightness(.65);
+}
+.ot-spotlight__image {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+  filter: none;
+}
+.ot-spotlight__scrim {
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(6,17,30,.38) 0%,
+    rgba(6,17,30,.02) 28%,
+    rgba(6,17,30,.3) 46%,
+    rgba(5,17,29,.97) 58%,
+    #071829 72%);
+}
+.ot-spotlight__content {
+  z-index: 2;
+  bottom: 19px;
+}
+.ot-spotlight__content h2 {font-size: clamp(23px,2.2vw,31px);}
+.ot-spotlight__subtitle {margin-bottom: 13px;}
+.ot-spotlight__meta {margin-bottom: 12px; padding-top: 9px;}
+.ot-spotlight__meta p {margin-bottom: 4px;}
+.ot-spotlight__top {z-index: 3;}
+
+/* Rail: bring the banner artwork to the front, lower the dark mask and avoid
+   doubling/blur effects from scaling the source beyond its useful detail. */
+.ot-hero__rail {align-self: center;}
+.ot-mini-card {
+  border-color: rgba(255,255,255,.3);
+  background: #0d2032;
+}
+.ot-mini-card img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.03);
+  image-rendering: auto;
+}
+.ot-mini-card::after {
+  background: linear-gradient(0deg,rgba(3,15,27,.95) 0%,rgba(4,15,27,.54) 37%,rgba(3,16,30,.06) 100%);
+}
+.ot-mini-card__copy strong {font-size: 11px; line-height: 1.2;}
+.ot-mini-card__date {box-shadow: 0 3px 12px rgba(0,0,0,.32);}
+
+/* 05 / Controls at the lower center with an explicit motion pause option. */
+.ot-carousel-arrow {
+  z-index: 10;
+  top: auto;
+  bottom: 22px;
+  width: 34px;
+  height: 34px;
+  transform: none;
+}
+.ot-carousel-arrow--prev {left: calc(50% - 93px);}
+.ot-carousel-arrow--next {left: calc(50% + 70px);right:auto;}
+.ot-hero__pager {left: 50%;bottom: 35px;transform:translateX(-50%);}
+.ot-autoplay {
+  position: absolute;
+  right: 25px;
+  bottom: 20px;
+  z-index: 8;
+  padding: 7px 10px;
+  font-size: 10px;
+  color: #d8e4ed;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 7px;
+  background: rgba(6,20,33,.78);
+}
+.ot-autoplay:hover {background: rgba(18,43,66,.93);color:#fff;}
+
+/* 06 / Responsive grid: maintain spacious balance until tablet stacking. */
+@media (min-width: 1200px) and (max-width:1399.98px) {
+  .ot-hero__inner {
+    grid-template-columns: minmax(275px,315px) minmax(20px,1fr) minmax(300px,345px) minmax(160px,195px);
+    column-gap: 12px;
+  }
+}
+@media (min-width: 992px) and (max-width:1199.98px) {
+  .ot-brand {min-width:85px;}
+  .ot-brand img {width:90px;}
+  .ot-hero__inner {
+    grid-template-columns: minmax(225px,265px) minmax(12px,1fr) minmax(263px,290px) minmax(135px,160px);
+    column-gap: 12px;
+  }
+  .ot-hero__copy h1 {font-size:clamp(37px,4.3vw,53px);}
+}
+@media (max-width:991.98px) {
+  .ot-brand {min-width:100px;}
+  .ot-brand img {width:102px;max-height:60px;}
+  .ot-hero__inner {max-width:100%;}
+  .ot-spotlight {height:414px;}
+  .ot-spotlight__visual {height:54%;}
+  .ot-mini-card {min-height:112px;}
+  .ot-carousel-arrow--prev {left:calc(50% - 90px);}
+  .ot-carousel-arrow--next {left:calc(50% + 65px);right:auto;}
+  .ot-autoplay {right:15px;bottom:22px;}
+}
+@media (max-width:767.98px) {
+  .ot-spotlight__visual {height:52%;}
+  .ot-spotlight__image {object-fit:contain;}
+  .ot-spotlight__content h2 {font-size:27px;}
+  .ot-hero__ambient {
+    background: linear-gradient(90deg,rgba(4,15,29,.95),rgba(4,15,29,.55)),
+                linear-gradient(0deg,rgba(3,13,25,.8),transparent 70%);
+  }
+  .ot-autoplay {bottom:22px;right:12px;}
+}
+@media (max-width:575.98px) {
+  .ot-brand {min-width:82px;}
+  .ot-brand img {width:83px;height:auto;max-height:48px;}
+  .ot-header.is-scrolled .ot-brand img {width:79px;max-height:44px;}
+  .ot-hero__inner {padding-bottom:85px;}
+  .ot-spotlight {height:384px;}
+  .ot-spotlight__visual {height:50%;}
+  .ot-spotlight__content {bottom:13px;}
+  .ot-spotlight__subtitle {margin-bottom:9px;}
+  .ot-spotlight__meta {margin-bottom:9px;}
+  .ot-carousel-arrow--prev {left:calc(50% - 90px);}
+  .ot-carousel-arrow--next {left:calc(50% + 63px);right:auto;}
+  .ot-hero__pager {bottom:45px;}
+  .ot-carousel-arrow {bottom:33px;}
+  .ot-autoplay {bottom:6px;right:50%;transform:translateX(50%);}
+}
+
+/* 07 / Motion accessibility and rendering budget. */
+@media (prefers-reduced-motion:reduce) {
+  .ot-hero__background {transition:none;transform:none!important;will-change:auto;}
+}

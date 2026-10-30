@@ -1,0 +1,136 @@
+/* ===========================================================================
+   OPEN TICKETS — SECTION 03 / FEATURED EVENTS
+   Mobile-first card component; no selectors interfere with existing Isotope.
+   Original posters contain embedded details: preserve the full poster without
+   cropping/stretching, over a subtle, matching blurred image backdrop.
+   Shared brand tokens live in assets/css/tokens.css.
+   =========================================================================== */
+:root {
+  --ot-featured-surface: #f8fafc;
+  --ot-featured-ink: #111d30;
+  --ot-featured-muted: #617086;
+  --ot-featured-card-border: #d4b073;
+  --ot-featured-card-radius: 12px;
+  --ot-featured-card-shadow: 0 7px 22px rgba(54, 46, 25, .09);
+  --ot-featured-accent-red: #e43a24;
+}
+
+.ot-featured {
+  padding: clamp(30px, 3.5vw, 54px) 0 clamp(54px, 5vw, 84px);
+  background: var(--ot-featured-surface);
+  color: var(--ot-featured-ink);
+  isolation: isolate;
+}
+.ot-featured__inner.container-xxl {max-width:var(--ot-container);padding-inline:24px;}
+.ot-featured__heading-row {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:21px;}
+.ot-featured__heading-wrap {display:flex;gap:17px;align-items:center;min-width:0;}
+.ot-featured h2 {font-family:var(--ot-font-display);font-size:clamp(22px,2vw,30px);font-weight:830;line-height:1.18;letter-spacing:-.045em;margin:0;color:var(--ot-featured-ink);}
+.ot-featured__heading-line {display:block;width:38px;height:2px;border-radius:2px;background:var(--ot-gold-dark);flex-shrink:0;}
+.ot-featured__view-all {text-decoration:none;color:#2c4665;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:670;white-space:nowrap;transition:color var(--ot-motion-fast);}
+.ot-featured__view-all .ot-icon {width:18px;height:18px;stroke-width:2;transition:transform .2s;}
+.ot-featured__view-all:hover {color:#be831c;}
+.ot-featured__view-all:hover .ot-icon {transform:translateX(3px);}
+.ot-featured__grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(13px,1.4vw,20px);align-items:stretch;}
+.ot-event-card {display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid var(--ot-featured-card-border);border-radius:var(--ot-featured-card-radius);background:#fff;box-shadow:var(--ot-featured-card-shadow);transition:box-shadow .22s ease,transform .22s ease,border-color .22s ease;}
+.ot-event-card:hover {box-shadow:0 16px 32px rgba(21,37,58,.12);transform:translateY(-3px);border-color:#bd8b2f;}
+.ot-event-card__media {height:clamp(138px,11.2vw,156px);position:relative;overflow:hidden;background:#071522;isolation:isolate;}
+.ot-event-card__poster-backdrop {position:absolute;inset:-18px;z-index:-1;background:#091522 var(--ot-poster) center/cover no-repeat;filter:blur(18px) brightness(.58);transform:scale(1.08);}
+.ot-event-card__poster {width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:0;filter:contrast(1.03) saturate(1.07);}
+.ot-event-card__date {position:absolute;z-index:2;left:12px;top:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;width:48px;min-height:54px;border-radius:8px;background:#fff;border:1px solid rgba(255,255,255,.88);color:#102034;box-shadow:0 3px 12px rgba(0,0,0,.24);font-variant-numeric:tabular-nums;}
+.ot-event-card__date strong {font-size:23px;font-weight:850;line-height:1.04;letter-spacing:-.07em;}
+.ot-event-card__date span {font-size:10px;font-weight:820;color:#68758a;letter-spacing:.035em;}
+.ot-event-card__category {position:absolute;z-index:2;right:12px;top:12px;padding:6px 12px;background:#f6d27f;border-radius:7px;box-shadow:0 3px 8px rgba(0,0,0,.16);font-size:11px;line-height:1.15;font-weight:790;color:#102039;}
+.ot-event-card__body {padding:16px 16px 15px;display:flex;flex-direction:column;flex:1;min-width:0;}
+.ot-event-card__title-row {display:flex;align-items:start;gap:6px;justify-content:space-between;min-height:39px;margin-bottom:8px;}
+.ot-event-card h3 {font-size:15px;font-weight:790;line-height:1.35;letter-spacing:-.024em;margin:0;color:#142137;}
+.ot-event-card h3 a {color:inherit;text-decoration:none;}
+.ot-event-card h3 a:hover {color:#bc821d;}
+.ot-event-card__save {width:34px;min-width:34px;height:34px;border:1px solid transparent;background:transparent;display:grid;place-items:center;color:#2a415e;border-radius:9px;margin:-7px -8px 0 0;padding:0;transition:background .18s,color .18s;}
+.ot-event-card__save .ot-icon {width:21px;height:21px;stroke-width:1.8;fill:transparent;transition:fill .18s;}
+.ot-event-card__save:hover,.ot-event-card__save:focus-visible {background:#f1f5fa;color:#bb7a18;}
+.ot-event-card__save[aria-pressed="true"] {color:#c07e18;}
+.ot-event-card__save[aria-pressed="true"] .ot-icon {fill:#f3c66d;}
+.ot-event-card__meta {display:flex;align-items:flex-start;gap:8px;color:var(--ot-featured-muted);font-size:12px;line-height:1.43;font-weight:490;margin:0 0 4px;min-width:0;}
+.ot-event-card__meta .ot-icon {width:14px;height:14px;min-width:14px;margin-top:2px;color:#344a63;stroke-width:1.8;}
+.ot-event-card__meta span,.ot-event-card__meta time {min-width:0;overflow-wrap:anywhere;}
+.ot-event-card__bottom {display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:16px;}
+.ot-event-card__price {font-weight:820;color:var(--ot-featured-accent-red);font-size:15px;white-space:nowrap;letter-spacing:-.025em;}
+.ot-event-card__cta {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:100px;min-height:36px;background:linear-gradient(115deg,#e2b354,#bd811c);color:#fff!important;text-decoration:none;border-radius:7px;padding:8px 12px;font-size:11px;font-weight:760;white-space:nowrap;box-shadow:0 5px 11px rgba(199,140,38,.16);transition:filter .2s,transform .2s;}
+.ot-event-card__cta .ot-icon {width:14px;height:14px;stroke-width:2;}
+.ot-event-card__cta:hover {filter:brightness(1.08);transform:translateY(-1px);}
+.ot-featured a:focus-visible,.ot-featured button:focus-visible {outline:3px solid #c78927;outline-offset:3px;}
+
+/* Laptop: maintain four real event cards but avoid tiny pricing/CTAs. */
+@media(max-width:1199.98px) {
+ .ot-featured__inner.container-xxl {padding-inline:20px;}
+ .ot-featured__grid {gap:12px;}
+ .ot-event-card__media {height:145px;}
+ .ot-event-card__body {padding:13px 12px;}
+ .ot-event-card h3 {font-size:13px;}
+ .ot-event-card__meta {font-size:11px;}
+ .ot-event-card__price {font-size:13px;}
+ .ot-event-card__cta {min-width:84px;font-size:10px;padding:7px 8px;}
+}
+/* Tablet: 2 cards across for comfortable reading and full-size artwork. */
+@media(max-width:991.98px) {
+ .ot-featured__grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+ .ot-event-card__media {height:clamp(164px,23vw,195px);}
+ .ot-event-card__body {padding:16px;}
+ .ot-event-card h3 {font-size:16px;}
+ .ot-event-card__meta {font-size:12px;}
+ .ot-event-card__price {font-size:15px;}
+ .ot-event-card__cta {font-size:12px;min-width:112px;}
+}
+/* Large phones: 2 columns only when ample width is available. */
+@media(min-width:600px) and (max-width:767.98px) {
+ .ot-featured__grid {gap:12px;}
+ .ot-event-card__media {height:160px;}
+}
+/* Mobile: full-width poster and no cutoff event titles. */
+@media(max-width:599.98px) {
+ .ot-featured {padding-block:28px 48px;}
+ .ot-featured__inner.container-xxl {padding-inline:14px;}
+ .ot-featured__heading-row {align-items:flex-end;margin-bottom:17px;gap:10px;}
+ .ot-featured__heading-wrap {gap:10px;}
+ .ot-featured h2 {font-size:23px;}
+ .ot-featured__heading-line {width:23px;}
+ .ot-featured__view-all {font-size:11px;gap:3px;}
+ .ot-featured__view-all .ot-icon {height:14px;width:14px;}
+ .ot-featured__grid {grid-template-columns:1fr;gap:17px;}
+ .ot-event-card__media {height:clamp(178px,51vw,235px);}
+ .ot-event-card__body {padding:16px;}
+ .ot-event-card h3 {font-size:16px;}
+ .ot-event-card__meta {font-size:12px;}
+ .ot-event-card__cta {min-height:42px;min-width:126px;font-size:12px;}
+ .ot-event-card__save {width:40px;height:40px;min-width:40px;}
+}
+@media(max-width:359.98px) {
+ .ot-featured__heading-line {display:none;}
+ .ot-featured h2 {font-size:21px;}
+ .ot-featured__view-all {font-size:10px;}
+ .ot-event-card__media {height:162px;}
+ .ot-event-card__price {font-size:14px;}
+ .ot-event-card__cta {min-width:112px;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .ot-event-card,.ot-event-card__cta,.ot-event-card__save,.ot-featured__view-all .ot-icon {transition:none!important;}
+ .ot-event-card:hover,.ot-event-card__cta:hover {transform:none;}
+}
+
+/* V17: refined gold border and card grouping; scoped to Featured Events only. */
+.ot-featured__grid {row-gap:22px;}
+.ot-event-card {border:1.5px solid var(--ot-featured-card-border);position:relative;}
+.ot-event-card::after {content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 1px 0 rgba(250,218,160,.15);}
+.ot-event-card:hover,.ot-event-card:focus-within {border-color:#b37e28;box-shadow:0 16px 38px rgba(39,36,26,.16),0 0 0 2px rgba(214,172,95,.12);}
+.ot-event-card__media {border-bottom:1px solid rgba(185,140,57,.38);}
+.ot-event-card__category {background:#f6d98e;}
+.ot-event-card__title-row {min-height:40px;}
+.ot-event-card__bottom {padding-top:14px;}
+.ot-featured__source-note {font-size:11px;line-height:1.55;color:#718095;margin:18px 1px 0;}
+@media (max-width:599.98px) {.ot-featured__grid {row-gap:18px;}}
+
+/* V20 | Featured Events: warm card body to match Upcoming Events. */
+:root { --ot-featured-card-surface: #fffaf0; --ot-featured-card-surface-deep: #fff2dc; }
+.ot-featured .ot-event-card { background: var(--ot-featured-card-surface); }
+.ot-featured .ot-event-card__body { background: linear-gradient(180deg, var(--ot-featured-card-surface) 0%, var(--ot-featured-card-surface-deep) 100%); }
+.ot-featured .ot-event-card__media { border-bottom-color: rgba(189,137,37,.42); }

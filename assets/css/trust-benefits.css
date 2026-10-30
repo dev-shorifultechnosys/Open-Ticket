@@ -1,0 +1,133 @@
+/* ============================================================================
+   SECTION 08 — TRUST & BENEFITS / WHY OPEN TICKETS
+   Four concise platform-benefit highlights matching the approved visual brief.
+   All rules are isolated under .ot-benefits to prevent changes to Sections 01–07.
+   Retheme using the variables here or global --ot-* tokens in tokens.css.
+   SVG icons are embedded in the HTML: crisp on HiDPI / retina without downloads.
+============================================================================ */
+.ot-benefits {
+  --ot-benefits-background: #f9fafb;
+  --ot-benefits-ink: #101b2a;
+  --ot-benefits-muted: #536176;
+  --ot-benefits-gold: #d99518;
+  --ot-benefits-gold-soft: #fff0d5;
+  --ot-benefits-divider: #e5e9ee;
+  --ot-benefits-circle: clamp(56px, 4.2vw, 66px);
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, var(--ot-benefits-background) 100%);
+  border-top: 1px solid #f2f3f5;
+  border-bottom: 1px solid #e4e9ee;
+  color: var(--ot-benefits-ink);
+}
+.ot-benefits__inner.container-xxl {
+  max-width: var(--ot-container, 1370px);
+  padding: clamp(18px, 2.1vw, 29px) clamp(16px, 2.35vw, 34px);
+}
+.ot-benefits__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+.ot-benefits__item {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  column-gap: clamp(13px, 1.4vw, 20px);
+  padding: 3px clamp(12px, 2vw, 26px);
+  position: relative;
+}
+.ot-benefits__item:first-child { padding-left: 0; }
+.ot-benefits__item:last-child { padding-right: 0; }
+.ot-benefits__item + .ot-benefits__item::before {
+  content: '';
+  width: 1px;
+  height: 82%;
+  max-height: 72px;
+  background: var(--ot-benefits-divider);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ot-benefits__icon {
+  width: var(--ot-benefits-circle);
+  height: var(--ot-benefits-circle);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff5df 0%, var(--ot-benefits-gold-soft) 72%);
+  box-shadow: inset 0 1px 0 #ffffffc8, 0 6px 16px #d9951815;
+  color: var(--ot-benefits-gold);
+  flex: 0 0 var(--ot-benefits-circle);
+  display: grid;
+  place-items: center;
+}
+.ot-benefits__icon svg {
+  width: 54%;
+  height: 54%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+.ot-benefits__copy { min-width: 0; }
+.ot-benefits__title {
+  margin: 0 0 5px;
+  color: var(--ot-benefits-ink);
+  font-family: var(--ot-font-body, 'Inter', 'Segoe UI', Arial, sans-serif);
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 750;
+  letter-spacing: -.018em;
+  line-height: 1.25;
+}
+.ot-benefits__description {
+  margin: 0;
+  color: var(--ot-benefits-muted);
+  font-family: var(--ot-font-body, 'Inter', 'Segoe UI', Arial, sans-serif);
+  font-size: clamp(12px, .87vw, 14px);
+  line-height: 1.56;
+  max-width: 24ch;
+  overflow-wrap: break-word;
+}
+/* Two columns provide a comfortable reading width on tablets/laptops. */
+@media (max-width: 1199.98px) {
+  .ot-benefits__list { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
+  .ot-benefits__item { padding-inline: clamp(14px, 3vw, 30px); }
+  .ot-benefits__item:nth-child(odd) { padding-left: 0; }
+  .ot-benefits__item:nth-child(even) { padding-right: 0; }
+  .ot-benefits__item:nth-child(3)::before { display: none; }
+  .ot-benefits__description { max-width: 35ch; font-size: 13.5px; }
+  .ot-benefits__title { font-size: 15.5px; }
+}
+/* Phone: no cramped cards or tiny captions. Keep the separator between rows. */
+@media (max-width: 575.98px) {
+  .ot-benefits__inner.container-xxl { padding: 14px 19px; }
+  .ot-benefits__list { grid-template-columns: 1fr; gap: 0; }
+  .ot-benefits__item,
+  .ot-benefits__item:first-child,
+  .ot-benefits__item:last-child,
+  .ot-benefits__item:nth-child(odd),
+  .ot-benefits__item:nth-child(even) {
+    padding: 15px 0;
+    gap: 16px;
+  }
+  .ot-benefits__item + .ot-benefits__item::before {
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    max-height: none;
+    transform: none;
+  }
+  .ot-benefits__icon { --ot-benefits-circle: 56px; }
+  .ot-benefits__title { font-size: 15px; }
+  .ot-benefits__description { max-width: 42ch; font-size: 13px; }
+}
+
+/* V19: icon drawing stays sharp at 1x, 2x and Retina; no icon font required. */
+.ot-benefits__icon svg { width: 57%; height: 57%; flex: none; overflow: visible; }
+.ot-benefits__icon { border: 1px solid rgba(226,174,81,.10); }

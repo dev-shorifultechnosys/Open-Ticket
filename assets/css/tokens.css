@@ -1,0 +1,27 @@
+/* ================================================================
+   OPEN TICKETS — DESIGN TOKENS / SECTION 01
+   All editable brand values live here. Update once, reuse everywhere.
+   Proposed palette (pending client approval), not an extracted brand spec.
+================================================================ */
+:root {
+  --ot-navy-950: #061320;
+  --ot-navy-900: #081a2b;
+  --ot-navy-850: #0b2033;
+  --ot-navy-800: #10283b;
+  --ot-white: #fff;
+  --ot-cream: #fff6df;
+  --ot-gold: #f3c66d;
+  --ot-gold-light: #ffdb91;
+  --ot-gold-dark: #d99d31;
+  --ot-muted: #bfccda;
+  --ot-stroke: rgba(255,255,255,.18);
+  --ot-shadow: 0 24px 70px rgba(0,0,0,.3);
+  --ot-font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --ot-font-display: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --ot-container: 1370px;
+  --ot-header-height: 78px;
+  --ot-radius-md: 13px;
+  --ot-radius-lg: 20px;
+  --ot-motion-fast: 180ms;
+  --ot-motion-normal: 350ms;
+}

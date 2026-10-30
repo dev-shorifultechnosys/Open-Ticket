@@ -1,0 +1,45 @@
+/* ============================================================================
+   Open Tickets V28 — Final submission QA refinements
+   Keep V27 approved visual identity; this file provides scoped, token-led fixes.
+   Native HTML/CSS/JS only. The production Isotope/CMS implementation is not here.
+   ============================================================================ */
+:root {
+  --ot-v28-surface:var(--ot-cream,#fff6df);
+  --ot-v28-text:var(--ot-navy-900,#081a2b);
+  --ot-v28-accent:var(--ot-gold-dark,#d99d31);
+  --ot-v28-border:color-mix(in srgb,var(--ot-gold-dark) 38%,white);
+  --ot-v28-focus:var(--ot-gold,#f3c66d);
+}
+/* Search toolbar: mobile filters collapse until explicitly opened. */
+.inner-results__mobile-actions{display:none}
+.ot-search-page .inner-results__card p{font-size:clamp(12px,.95vw,13px);line-height:1.5}
+.ot-search-page .inner-results__card h3{font-size:clamp(14px,1.05vw,16px)}
+.ot-search-page .inner-results__card-meta strong{font-size:13px}
+.ot-search-page .inner-results__card-meta a{font-size:12px;min-height:39px;display:inline-flex;align-items:center;justify-content:center}
+.ot-search-page .inner-results__filters label{font-size:13px}
+/* Event hero artwork: 1210×450 banner should not sit inside a 1.68:1 dark frame. */
+.event-detail__main-image{aspect-ratio:2.50;position:relative;background:#111e2c;border-color:var(--ot-v28-border)}
+.event-detail__main-image:before{content:"";position:absolute;inset:-14px;background:url('../images/events/appel-pe.webp') center/cover no-repeat;filter:blur(16px) brightness(.64);opacity:.8}
+.event-detail__main-image img{position:relative;z-index:1;object-fit:contain;background:transparent}
+.event-detail__main-image:not(.is-event-banner){aspect-ratio:1.85}
+.event-detail__main-image:not(.is-event-banner) img{object-fit:cover}
+.event-detail__thumbs button:focus-visible{outline:3px solid var(--ot-v28-focus);outline-offset:3px}
+/* Keep hero imagery brighter in the centre while the reading lanes stay dark. */
+.ot-hero--v25 .ot-hero__ambient{
+  background:linear-gradient(90deg,rgba(3,13,25,.94) 0%,rgba(3,13,25,.73) 18%,rgba(3,13,25,.27) 38%,rgba(3,13,25,.09) 60%,rgba(3,13,25,.43) 84%,rgba(3,13,25,.68) 100%),linear-gradient(0deg,rgba(3,13,25,.70),transparent 32%,rgba(3,13,25,.07) 70%)!important;
+}
+.ot-hero--v25 .ot-hero__copy{border-radius:14px;}
+@media(max-width:767.98px){
+  .inner-results__mobile-actions{display:block;margin:0 0 13px}
+  .inner-results__filter-toggle{width:100%;min-height:46px;padding:11px 16px;display:flex;align-items:center;justify-content:center;gap:11px;border:1px solid var(--ot-v28-border);border-radius:11px;background:linear-gradient(110deg,#fffdf8,var(--ot-v28-surface));color:var(--ot-v28-text);font-weight:800;box-shadow:0 5px 20px #0b203310;cursor:pointer}
+  .inner-results__filter-toggle-chevron{margin-left:auto;font-size:21px;transition:transform .18s ease;color:var(--ot-v28-accent)}
+  .inner-results__filter-toggle[aria-expanded="true"] .inner-results__filter-toggle-chevron{transform:rotate(180deg)}
+  .ot-search-page .inner-results__filters{display:none!important}
+  .ot-search-page .inner-results__filters.is-mobile-open{display:grid!important;grid-template-columns:1fr;gap:0;margin-bottom:17px}
+  .ot-search-page .inner-results__filters.is-mobile-open fieldset{margin:0 0 14px;padding:0 0 14px;border-bottom:1px solid #eadbbe}
+  .event-detail__main-image{aspect-ratio:2.07}
+  .event-detail__main-image:not(.is-event-banner){aspect-ratio:1.55}
+  .ot-hero--v25 .ot-hero__ambient{background:linear-gradient(180deg,rgba(3,13,25,.46),rgba(3,13,25,.46) 22%,rgba(3,13,25,.83) 52%,#061625 74%,#061625 100%)!important}
+}
+@media(max-width:480px){.event-detail__main-image{aspect-ratio:1.85}}
+@media(prefers-reduced-motion:reduce){.inner-results__filter-toggle-chevron{transition:none}}

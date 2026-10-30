@@ -1,0 +1,139 @@
+/* ===========================================================================
+   SECTION 04 — THE LIVE EXPERIENCE / RESPONSIVE VIDEO PLAYLIST (V13)
+   The desktop/laptop media grid is explicit: LEFT hero player + RIGHT 5 cards.
+   Breakpoints: 992px+ side-by-side; 768–991px two-col thumbnails below;
+   below 768px swipeable thumbnails below the video.
+   All styling is scoped under .ot-live to preserve previous sections.
+   =========================================================================== */
+.ot-live {
+  --live-ink: #061625;
+  --live-surface: #11273a;
+  --live-line: rgba(255,255,255,.13);
+  --live-gold: var(--ot-gold, #f3c66d);
+  background: linear-gradient(135deg,#071523 0%,#091c2d 52%,#061321 100%);
+  color: #fff;
+  padding: clamp(38px,3.2vw,58px) 0 clamp(42px,3.7vw,66px);
+  overflow: clip;
+}
+.ot-live__wrap { width:100%; padding-inline: clamp(18px,2.3vw,32px); }
+.ot-live__content { display: block; min-width:0; }
+.ot-live__copy { max-width: 970px; padding-bottom: 26px; }
+.ot-live__eyebrow { color:var(--live-gold);font-size:12px;font-weight:800;letter-spacing:.16em;margin:0 0 9px; }
+.ot-live__title { font-family:Georgia,'Times New Roman',serif;font-size:clamp(34px,3.15vw,51px);line-height:1.08;letter-spacing:-.035em;font-weight:600;margin:0 0 13px;color:#fff; }
+.ot-live__description { max-width:680px;color:#d5e0e9;font-size:15px;line-height:1.6;margin:0 0 18px; }
+.ot-live__cta { display:inline-flex;align-items:center;gap:12px;padding:11px 18px;min-height:44px;border-radius:9px;background:linear-gradient(120deg,#ffe099,#edb64e);color:#071725;text-decoration:none;font-size:13px;font-weight:800;transition:filter .2s ease,transform .2s ease; }
+.ot-live__cta:hover { color:#071725;filter:brightness(1.07);transform:translateY(-1px); }
+.ot-live__cta .ot-icon { width:18px;height:18px; }
+
+/* LEFT: large video; RIGHT: five genuine, selectable, thumbnail cards. */
+.ot-live__media-layout {
+  display:grid;
+  grid-template-columns:minmax(0, 1.75fr) minmax(315px, 1fr);
+  align-items:start;
+  column-gap:clamp(16px,2vw,28px);
+  width:100%;
+  min-width:0;
+}
+.ot-live__player-card { min-width:0;background:#0b1c2d;border:1px solid var(--live-line);border-radius:16px;overflow:hidden;box-shadow:0 22px 44px rgba(0,0,0,.3); }
+.ot-live__player { display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#01060d; }
+.ot-live__player-meta { padding:16px 19px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:82px; }
+.ot-live__label { text-transform:uppercase;color:var(--live-gold);font-size:11px;font-weight:800;letter-spacing:.12em;margin:0 0 4px; }
+.ot-live__video-title { color:#fff;font-size:clamp(17px,1.5vw,23px);font-weight:750;line-height:1.25;margin:0; }
+.ot-live__duration { flex:0 0 auto;color:#e5c47c;background:rgba(231,186,93,.12);border:1px solid rgba(231,186,93,.28);padding:7px 10px;border-radius:7px;font-size:12px;font-weight:700; }
+
+.ot-live__playlist { display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:9px;min-width:0; }
+.ot-live__playlist-item {
+  min-width:0; min-height:92px;
+  display:grid; grid-template-columns:136px minmax(0,1fr) auto;
+  align-items:center; gap:12px;
+  padding:7px 9px;
+  background:rgba(17,39,58,.92);
+  border:1px solid rgba(255,255,255,.13);border-radius:11px;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  cursor:pointer; color:#fff; text-align:left;
+  transition:border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.ot-live__playlist-item:hover { border-color:rgba(242,199,105,.65);background:#1b3347;transform:translateY(-1px); }
+.ot-live__playlist-item.is-active,.ot-live__playlist-item[aria-pressed="true"] { border-color:#dfba69;background:linear-gradient(100deg,rgba(104,80,41,.45),#102638 60%); }
+.ot-live__thumb { position:relative; display:block;width:136px;height:76px;border-radius:7px;overflow:hidden;isolation:isolate;background:#061421; }
+.ot-live__thumb img { display:block;width:100%;height:100%;object-fit:cover; }
+.ot-live__thumb-play { position:absolute;inset:auto auto 7px 7px;width:27px;height:27px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.8);border-radius:50%;background:rgba(5,17,30,.82);color:#ffe4a1;z-index:2; }
+.ot-live__thumb-play svg { width:14px;height:14px;fill:currentColor;transform:translateX(1px); }
+.ot-live__playlist-copy { min-width:0;display:flex;flex-direction:column;gap:6px; }
+.ot-live__playlist-copy strong { color:#fff;font-size:13px;font-weight:800;line-height:1.25; }
+.ot-live__playlist-copy small { color:#b9c9d9;font-size:11px;line-height:1.3; }
+.ot-live__playlist-time { color:#e9c579;font-size:11px;font-weight:750;align-self:center;white-space:nowrap; }
+.ot-live__playlist-item:focus-visible,.ot-live__cta:focus-visible { outline:3px solid #ffe7a9;outline-offset:3px; }
+@media (min-width:1500px) {
+  .ot-live__media-layout { grid-template-columns:minmax(0,1.86fr) minmax(355px,1fr); }
+  .ot-live__playlist-item { min-height:99px;grid-template-columns:148px minmax(0,1fr) auto; }
+  .ot-live__thumb { width:148px;height:83px; }
+}
+@media (min-width:992px) and (max-width:1199.98px) {
+  .ot-live__media-layout { grid-template-columns:minmax(0,1.55fr) minmax(310px,.95fr);column-gap:16px; }
+  .ot-live__playlist { gap:7px; }
+  .ot-live__playlist-item { grid-template-columns:96px minmax(0,1fr);grid-template-rows:auto auto;min-height:70px;gap:2px 10px;padding:6px; }
+  .ot-live__thumb {grid-row:1/3;grid-column:1;width:96px;height:58px;}
+  .ot-live__playlist-copy { grid-row:1;grid-column:2;gap:2px; }
+  .ot-live__playlist-time { grid-row:2;grid-column:2;justify-self:start; }
+}
+@media (max-width:991.98px) {
+  .ot-live { padding:35px 0 44px; }
+  .ot-live__copy { padding-bottom:24px; }
+  .ot-live__media-layout { grid-template-columns:minmax(0,1fr);gap:18px; }
+  .ot-live__playlist { grid-template-columns:repeat(2,minmax(0,1fr));gap:10px; }
+  .ot-live__playlist-item { grid-template-columns:110px minmax(0,1fr);grid-template-rows:auto auto;gap:2px 10px;min-height:83px;padding:7px; }
+  .ot-live__thumb { grid-row:1/3;grid-column:1;width:110px;height:68px; }
+  .ot-live__playlist-copy { grid-row:1;grid-column:2;gap:4px; }
+  .ot-live__playlist-time { grid-row:2;grid-column:2;justify-self:start; }
+}
+@media (max-width:640px) {
+  .ot-live { padding:28px 0 35px; }
+  .ot-live__wrap { padding-inline:16px; }
+  .ot-live__title { font-size:clamp(32px,8vw,43px); }
+  .ot-live__description { font-size:13px;line-height:1.55; }
+  .ot-live__player-card { border-radius:12px; }
+  .ot-live__player-meta { min-height:0;padding:11px 13px; }
+  .ot-live__video-title {font-size:16px;}
+  .ot-live__duration {font-size:10px;padding:5px 7px;}
+  .ot-live__playlist {display:flex;overflow-x:auto;gap:10px;padding:1px 1px 10px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#d9b45f #182f45;overscroll-behavior-x:contain;}
+  .ot-live__playlist-item {flex:0 0 218px;min-height:0;display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:6px 6px 9px;scroll-snap-align:start;}
+  .ot-live__thumb {width:100%;height:auto;aspect-ratio:16/9;flex:0 0 auto;}
+  .ot-live__playlist-copy {gap:3px;padding:0 4px;}
+  .ot-live__playlist-copy strong {font-size:13px;}
+  .ot-live__playlist-copy small {font-size:11px;}
+  .ot-live__playlist-time {align-self:start;padding:0 4px;}
+}
+@media (prefers-reduced-motion:reduce) { .ot-live__playlist-item,.ot-live__cta { transition:none; } }
+
+
+/* ======================================================================
+   V14 / REQUESTED LAYOUT REFINEMENT
+   Keep the heading on one line where space allows, and locate the primary
+   action immediately beneath the main video. Narrow screens wrap naturally.
+   Scoped to Section 04 — all other Homepage sections remain untouched.
+====================================================================== */
+.ot-live__copy {max-width:100%;}
+.ot-live__player-column {display:flex;flex-direction:column;gap:16px;min-width:0;}
+.ot-live__player-column .ot-live__cta {align-self:flex-end;min-height:46px;padding-inline:22px;}
+@media (min-width:768px) {
+  .ot-live__title {font-size:clamp(23px,2.55vw,40px);white-space:nowrap;letter-spacing:-.035em;}
+}
+@media (max-width:767.98px) {
+  .ot-live__title {white-space:normal;text-wrap:balance;}
+  .ot-live__player-column .ot-live__cta {align-self:flex-start;}
+}
+
+/* V20 | Real muted-by-default soundtrack control, only active for clips with audio tracks. */
+.ot-live__sound-row { display:flex; align-items:center; gap:12px; padding:10px 16px 12px; background:#0b2033; border-bottom:1px solid rgba(255,255,255,.10); flex-wrap:wrap; }
+.ot-live__sound-toggle { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-width:132px; min-height:40px; border-radius:9px; border:1px solid #e4b661; color:#ffe2a2; background:#152d42; padding:8px 12px; font-size:13px; font-weight:700; cursor:pointer; transition:background .18s, color .18s; }
+.ot-live__sound-toggle:hover { background:#24445e; }
+.ot-live__sound-toggle[aria-pressed="true"] { background:#f2c66e; color:#061526; }
+.ot-live__sound-toggle:disabled { opacity:.5; cursor:not-allowed; }
+.ot-live__sound-icon { display:block; width:19px; height:19px; flex:none; }
+.ot-live__sound-icon .ot-live__sound-on { display:none; }
+.ot-live__sound-toggle[aria-pressed="true"] .ot-live__sound-off { display:none; }
+.ot-live__sound-toggle[aria-pressed="true"] .ot-live__sound-on { display:block; }
+.ot-live__sound-hint { color:#bad0e0; font-size:12px; line-height:1.4; }
+.ot-live__sound-toggle:focus-visible { outline:3px solid #f1cc79; outline-offset:3px; }
+@media(max-width:599.98px) { .ot-live__sound-row {padding:10px 12px 13px;gap:8px;} .ot-live__sound-toggle{min-width:126px;} .ot-live__sound-hint{font-size:11px;} }

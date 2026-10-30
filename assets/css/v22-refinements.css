@@ -1,0 +1,55 @@
+/* V22 — audit repairs, themable tokens, mobile art direction.
+  Overrides are consolidated here to keep all approved sections intact.
+  Production CMS can map these tokens to its theme settings. */
+:root{--ot-surface:#f8fafc;--ot-card-cream:#fffaf0;--ot-card-stroke:#e6c884;--ot-text-muted:#607085;--ot-focus:#ffde87;--ot-page-gutter:clamp(16px,3vw,34px)}
+:focus-visible{outline:3px solid var(--ot-focus);outline-offset:3px}
+.ot-upcoming__note,.ot-featured__source-note{font-size:clamp(11px,.84vw,13px);line-height:1.6}
+.ot-hero .ot-hero__background-frame picture{display:block;position:absolute;inset:0;z-index:1;width:100%;height:100%}
+/* V23 FIX: Hero slideshow JS adds .is-active to the FRAME, not to each IMG.
+   The legacy hero-background-fix.css hid every IMG with opacity:0 and
+   visibility:hidden. Previously V22 only reset these states on mobile.
+   Reveal actual <picture><img> content on desktop/tablet too, while the
+   parent frame alone controls crossfade (opacity/visibility). */
+.ot-hero .ot-hero__background-frame picture > .ot-hero__background{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  position:relative!important;
+  z-index:1!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+  transition:none!important;
+  max-width:none!important;
+  max-height:none!important;
+  background:transparent!important;
+  filter:saturate(1.06)!important;
+}
+.ot-hero__backgrounds{will-change:auto}
+.ot-featured,.ot-upcoming{background:var(--ot-surface)}
+.ot-event-card,.ot-upcoming-card{border:1px solid var(--ot-card-stroke);background:linear-gradient(180deg,#fff,var(--ot-card-cream));}
+.ot-hero__copy h1{letter-spacing:-.055em}
+.ot-upcoming__note{color:#65748b}
+.ot-footer__social-icon{transition:transform .2s ease}
+.ot-footer__social-icon:hover{transform:translateY(-2px)}
+@media(min-width:1200px){.ot-hero__description{font-size:clamp(15px,1vw,17px)}.ot-event-card__meta,.ot-upcoming-card__meta{font-size:12.5px}}
+@media(max-width:767.98px){
+ .ot-hero{background:#061525!important;isolation:isolate}
+ /* The photographs occupy the opening 430px and fade into the body; they don't stretch across the entire tall mobile hero. */
+ .ot-hero .ot-hero__backgrounds{inset:0 0 auto!important;height:clamp(350px,108vw,500px)!important;z-index:0!important;overflow:hidden!important}
+ .ot-hero .ot-hero__background-frame{height:100%!important;min-height:0!important}
+ .ot-hero .ot-hero__background-frame::before{display:none!important}
+ .ot-hero .ot-hero__background-frame picture{inset:0!important;height:100%!important}
+ .ot-hero .ot-hero__background-frame picture>.ot-hero__background{object-fit:cover!important;object-position:center 42%!important;height:100%!important;opacity:1!important;visibility:visible!important;filter:saturate(1.16) brightness(.87)!important}
+ .ot-hero .ot-hero__ambient{z-index:1!important;inset:0!important;background:linear-gradient(180deg,rgba(3,14,26,.50) 0%,rgba(3,14,26,.44) 23%,rgba(4,15,27,.64) 40%,#061525 64%,#061525 100%)!important}
+ .ot-hero .ot-hero__inner{position:relative!important;z-index:2!important;padding-top:36px!important}
+ .ot-hero__copy{min-height:276px!important;position:relative}
+ .ot-hero__copy h1{color:#fff;text-shadow:0 2px 25px rgba(0,0,0,.38)}
+ .ot-hero__copy .ot-hero__description{max-width:31ch;color:#f0f6fa;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+ .ot-spotlight{box-shadow:0 20px 45px rgba(0,0,0,.38)}
+ .ot-event-card__meta,.ot-upcoming-card__meta{font-size:12px}
+}
+@media(max-width:359px){.ot-hero__copy{min-height:295px!important}.ot-hero .ot-hero__inner{padding-inline:12px!important}}
+@media(prefers-reduced-motion:reduce){.ot-footer__social-icon{transition:none}}

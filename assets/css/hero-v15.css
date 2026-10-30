@@ -1,0 +1,119 @@
+/* ======================================================================
+   OPEN TICKETS / SECTION 01: V15 HERO REFINEMENT
+   1. Scenic slideshow is independent from the Featured Event controls.
+   2. Whole banners/photos remain inside the image box: no cover-crop.
+   3. Event arrows/pager live BELOW the Featured Event card only.
+   4. Mini-event rail changes one card at a time, slowly.
+   Carefully scoped to Section 01; no Isotope, video or footer changes.
+====================================================================== */
+.ot-hero { isolation:isolate; }
+.ot-hero .ot-hero__backgrounds {z-index:0;position:absolute;inset:0;background:#071524;overflow:hidden;pointer-events:none}
+.ot-hero .ot-hero__background-frame {
+  position:absolute;inset:0;display:grid;place-items:center;
+  z-index:0;opacity:0;visibility:hidden;overflow:hidden;
+  background:#071625;
+  transition:opacity 1650ms ease,visibility 1650ms linear;
+}
+.ot-hero .ot-hero__background-frame.is-active {opacity:1;visibility:visible;z-index:1;}
+/* The soft image fill covers only areas outside the exact uncropped poster. */
+.ot-hero .ot-hero__background-frame::before {
+  content:"";position:absolute;inset:-42px;
+  background-image:var(--ot-scene-image);
+  background-position:center;background-size:cover;
+  filter:blur(24px) brightness(.54) saturate(.9);
+  transform:scale(1.035);pointer-events:none;
+}
+.ot-hero .ot-hero__background-frame > .ot-hero__background {
+  position:relative!important;z-index:1!important;inset:auto!important;
+  display:block!important;width:100%!important;height:100%!important;
+  max-width:100%!important;max-height:100%!important;
+  object-fit:contain!important;object-position:center center!important;
+  opacity:1!important;visibility:visible!important;
+  background:transparent!important;background-image:none!important;
+  filter:saturate(1.03)!important;
+  transform:none!important;transition:none!important;will-change:auto!important;
+}
+/* Slightly lighter center: event photo is visible without harming headings. */
+.ot-hero .ot-hero__ambient {
+  z-index:1;
+  background:linear-gradient(90deg,rgba(2,12,23,.93) 0%,rgba(3,13,24,.73) 17%,rgba(3,12,23,.19) 39%,rgba(2,10,20,.12) 62%,rgba(3,12,24,.52) 100%),
+             linear-gradient(0deg,rgba(3,11,22,.64),transparent 34%,rgba(4,15,29,.04) 76%);
+}
+.ot-hero .ot-hero__inner {z-index:2;}
+.ot-hero .ot-hero__featured-shell {grid-column:3;min-width:0;display:flex;flex-direction:column;gap:11px;align-self:center;position:relative;z-index:3;}
+.ot-hero .ot-spotlight {grid-column:auto!important;width:100%;height:396px;margin:0;min-width:0;}
+.ot-hero .ot-hero__rail {grid-column:4;align-self:center;}
+/* Control bar anchored to the FEATURED EVENT; no arrows/dots on background. */
+.ot-hero .ot-feature-controls {
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:2px 6px;min-height:41px;
+  width:100%;border:1px solid rgba(255,255,255,.18);
+  background:rgba(4,16,28,.83);border-radius:12px;
+  box-shadow:0 7px 22px rgba(0,0,0,.2);
+  backdrop-filter:blur(7px);
+}
+.ot-hero .ot-feature-controls .ot-carousel-arrow {
+  position:static!important;inset:auto!important;left:auto!important;right:auto!important;
+  top:auto!important;bottom:auto!important;transform:none!important;
+  flex:0 0 31px;width:31px;height:31px;display:grid;place-items:center;
+  border:1px solid rgba(246,200,110,.42);border-radius:50%;
+  background:#081b2e;color:#f8e5b3;box-shadow:none;padding:0;
+}
+.ot-hero .ot-feature-controls .ot-carousel-arrow:hover {background:#183751;border-color:#f8d37d;}
+.ot-hero .ot-feature-controls .ot-hero__pager {
+  position:static!important;inset:auto!important;top:auto!important;bottom:auto!important;
+  left:auto!important;right:auto!important;transform:none!important;
+  display:flex;align-items:center;justify-content:center;gap:7px;margin:0;padding:0;
+  min-width:102px;
+}
+.ot-hero .ot-feature-controls .ot-hero__pager button {width:8px;height:8px;flex:none;border-radius:99px;padding:0;border:0;background:rgba(237,242,247,.65);}
+.ot-hero .ot-feature-controls .ot-hero__pager button.is-active {width:26px;background:#f4c86f;}
+.ot-hero .ot-feature-controls .ot-autoplay {
+  position:static!important;inset:auto!important;left:auto!important;right:auto!important;
+  top:auto!important;bottom:auto!important;transform:none!important;
+  min-height:29px;padding:5px 8px;font-size:10px;white-space:nowrap;
+  color:#dfe9f1;background:#10263b;border-color:rgba(255,255,255,.27);
+}
+/* Subtle single-card motion. Each card has time to be read before changing. */
+.ot-hero .ot-mini-card {transition:opacity 450ms ease, transform 450ms ease,border-color 180ms ease,box-shadow 180ms ease;}
+.ot-hero .ot-mini-card.is-changing {opacity:0;transform:translateY(12px);pointer-events:none;}
+.ot-hero .ot-mini-card.is-arriving {opacity:0;transform:translateY(-11px);}
+.ot-hero .ot-mini-card:not(.is-changing):not(.is-arriving):hover {transform:translateY(-2px);}
+/* Grid: match original alignment even though Featured Event now has a wrapper. */
+@media (min-width:1400px) {
+ .ot-hero .ot-hero__featured-shell .ot-spotlight {height:420px;}
+ .ot-hero .ot-hero__rail {align-self:center;}
+}
+@media (min-width:992px) and (max-width:1199.98px) {
+ .ot-hero .ot-feature-controls {gap:7px;}
+ .ot-hero .ot-feature-controls .ot-hero__pager {min-width:90px;gap:5px;}
+ .ot-hero .ot-feature-controls .ot-autoplay {font-size:9px;padding:4px 5px;}
+ .ot-hero .ot-spotlight {height:395px;}
+}
+@media (max-width:991.98px) {
+ .ot-hero .ot-hero__featured-shell {grid-column:2;grid-row:1;align-self:center;}
+ .ot-hero .ot-hero__rail {grid-column:1/-1;grid-row:2;align-self:stretch;}
+ .ot-hero .ot-spotlight {height:414px;}
+ .ot-hero .ot-hero__inner {padding-bottom:50px;}
+}
+@media (max-width:767.98px) {
+ .ot-hero .ot-hero__featured-shell {grid-column:1;grid-row:auto;width:100%;}
+ .ot-hero .ot-hero__rail {grid-column:1;grid-row:auto;}
+ .ot-hero .ot-hero__ambient {background:linear-gradient(90deg,rgba(2,12,24,.85),rgba(3,13,26,.46)),linear-gradient(0deg,rgba(3,12,23,.74),transparent 75%)}
+ .ot-hero .ot-hero__inner {padding-bottom:41px;}
+ .ot-hero .ot-spotlight {height:385px;}
+}
+@media (max-width:575.98px) {
+ .ot-hero .ot-spotlight {height:384px;}
+ .ot-hero .ot-feature-controls {gap:8px;}
+ .ot-hero .ot-feature-controls .ot-hero__pager {gap:6px;min-width:98px;}
+ .ot-hero .ot-feature-controls .ot-autoplay {font-size:10px;}
+}
+@media (max-width:359.98px) {
+ .ot-hero .ot-feature-controls {gap:5px;padding-inline:4px;}
+ .ot-hero .ot-feature-controls .ot-hero__pager {gap:4px;min-width:84px;}
+ .ot-hero .ot-feature-controls .ot-autoplay {padding:5px 5px;font-size:9px;}
+}
+@media (prefers-reduced-motion:reduce) {
+ .ot-hero .ot-hero__background-frame,.ot-hero .ot-mini-card {transition:none!important;}
+}

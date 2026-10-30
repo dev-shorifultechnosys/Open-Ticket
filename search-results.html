@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#061526" name="theme-color"/><meta content="Find music, sports, arts and festival events on Open Tickets." name="description"/><title>Search Events | Open Tickets</title><link href="assets/images/branding/favicon.png" rel="icon" type="image/png"/><link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="assets/css/tokens.css" rel="stylesheet"/>
+<link href="assets/css/header-hero.css" rel="stylesheet"/>
+<link href="assets/css/section01-refinements.css" rel="stylesheet"/>
+<link href="assets/css/footer.css" rel="stylesheet"/>
+<link href="assets/css/i18n.css" rel="stylesheet"/>
+<link href="assets/css/inner-pages.css" rel="stylesheet"/>
+<link href="assets/css/v27-luxury-refinement.css" rel="stylesheet"/><link rel="stylesheet" href="assets/css/v28-final.css"></head>
+<body class="ot-inner-page ot-search-page"><a class="skip-link" href="#main-content">Skip to main content</a><header class="ot-header" id="siteHeader">
+<div class="ot-header__inner container-xxl">
+<a aria-label="Open Tickets homepage" class="ot-brand" href="index.html">
+<img alt="Open Tickets" decoding="async" height="150" src="assets/images/branding/open-tickets-logo.png" width="286"/>
+</a>
+<nav aria-label="Main navigation" class="ot-primary-nav">
+<a class="ot-primary-nav__link" href="index.html">Events</a>
+<a class="ot-primary-nav__link" href="search-results.html?category=sports">Sports</a>
+<a class="ot-primary-nav__link" href="search-results.html?category=music">Music</a>
+<a class="ot-primary-nav__link" href="search-results.html?category=theatre">Theatre</a>
+<a class="ot-primary-nav__link" href="search-results.html?category=arts">Arts</a>
+<a class="ot-primary-nav__link" href="faqs.html">FAQs</a>
+<a class="ot-primary-nav__link" href="https://opentickets.co.za/support">Contact</a>
+</nav>
+<div class="ot-header__actions">
+<form action="search-results.html" class="ot-header-search" method="get" role="search">
+<svg aria-hidden="true" class="ot-icon"><use href="#ot-i-search"></use></svg>
+<label class="visually-hidden" for="globalSearch">Search events, artists or venues</label>
+<input autocomplete="off" id="globalSearch" name="query" placeholder="Search events, artists, venues…" type="search"/>
+<button aria-label="Search events" type="submit"><svg class="ot-icon"><use href="#ot-i-arrow"></use></svg></button>
+</form>
+<div aria-label="Choose a city in event search" class="ot-header__location">
+<svg aria-hidden="true" class="ot-icon"><use href="#ot-i-pin"></use></svg>
+<span>South Africa</span>
+</div>
+<div class="ot-language dropdown">
+<button aria-expanded="false" aria-label="Select language" class="ot-language__toggle" data-bs-toggle="dropdown" type="button"><span id="languageLabel">English</span><svg aria-hidden="true" class="ot-icon"><use href="#ot-i-chevron"></use></svg></button>
+<ul class="dropdown-menu dropdown-menu-end ot-language__menu">
+<li><button class="dropdown-item is-selected" data-lang="en" type="button">English</button></li>
+<li><button class="dropdown-item" data-lang="af" type="button">Afrikaans</button></li>
+<li><button class="dropdown-item" data-lang="zu" type="button">isiZulu</button></li>
+<li><button class="dropdown-item" data-lang="xh" type="button">isiXhosa</button></li>
+<li><button class="dropdown-item" data-lang="st" type="button">Sesotho</button></li>
+<li><button class="dropdown-item" data-lang="de" type="button">Deutsch</button></li>
+<li><button class="dropdown-item" data-lang="fr" type="button">Français</button></li>
+<li><button class="dropdown-item" data-lang="es" type="button">Español</button></li>
+<li><button class="dropdown-item" data-lang="pt" type="button">Português</button></li>
+</ul>
+</div>
+<a aria-label="My bookings and account" class="ot-account-icon" href="https://opentickets.co.za/login"><svg aria-hidden="true" class="ot-icon"><use href="#ot-i-user"></use></svg></a>
+<a class="ot-account-button" href="https://opentickets.co.za/login">My Account <svg aria-hidden="true" class="ot-icon"><use href="#ot-i-arrow"></use></svg></a>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open navigation" class="ot-mobile-toggle" id="mobileMenuToggle" type="button"><svg aria-hidden="true" class="ot-icon"><use href="#ot-i-menu"></use></svg></button>
+</div>
+</div>
+<!-- Mobile navigation, shared by all four local pages. -->
+<div class="ot-mobile-menu" hidden="" id="mobileMenu">
+<nav aria-label="Mobile navigation" class="ot-mobile-menu__links container">
+<a href="index.html">Events</a>
+<a aria-current="page" href="search-results.html?category=sports">Sports</a>
+<a href="search-results.html?category=music">Music</a>
+<a href="search-results.html?category=theatre">Theatre &amp; Arts</a>
+<a href="faqs.html">FAQs</a>
+<a href="https://opentickets.co.za/support">Contact &amp; Support</a>
+<a href="https://opentickets.co.za/login">My Bookings</a>
+</nav>
+<form action="search-results.html" class="ot-mobile-menu__search container" method="get" role="search">
+<label class="visually-hidden" for="mobileSearch">Search events</label>
+<input id="mobileSearch" name="query" placeholder="Search events and venues" type="search"/>
+<button aria-label="Search" type="submit"><svg class="ot-icon"><use href="#ot-i-search"></use></svg></button>
+</form>
+</div>
+</header>
+<main id="main-content"><section class="inner-hero inner-hero--search"><div class="inner-hero__visual"><img alt="" decoding="async" height="672" src="assets/images/categories/festivals.webp" width="1024"/></div><div class="inner-hero__content container-xxl"><p class="inner-eyebrow">DISCOVER EVENTS</p><h1>Search Results</h1><p>Explore concerts, sports, festivals and unforgettable experiences across South Africa.</p></div></section>
+<section class="inner-section container-xxl"><form class="inner-results__search" id="resultSearchForm" role="search"><label class="visually-hidden" for="resultSearchInput">Search events or venues</label><svg aria-hidden="true" class="ot-icon"><use href="#ot-i-search"></use></svg><input autocomplete="off" id="resultSearchInput" placeholder="Search events, artists or venues" type="search"/><button class="inner-btn inner-btn--gold" type="submit">Search <span aria-hidden="true">→</span></button></form>
+<div class="inner-results__toolbar"><div><h2>Explore events</h2><p aria-live="polite" id="resultCount">Loading events…</p></div><label class="inner-results__sort">Sort by <select id="resultSort"><option value="date">Date: soonest</option><option value="name">Event name: A–Z</option></select></label></div>
+<div class="inner-results__mobile-actions"><button aria-controls="resultFilters" aria-expanded="false" class="inner-results__filter-toggle" id="resultFilterToggle" type="button"><span aria-hidden="true">☷</span> <span class="inner-results__filter-toggle-text">Filter &amp; Sort</span><span aria-hidden="true" class="inner-results__filter-toggle-chevron">⌄</span></button></div>
+<div class="inner-results__layout"><aside aria-label="Filter search results" class="inner-results__filters" id="resultFilters"><div class="inner-results__filters-heading"><h3>Filter by</h3><button id="resetResultFilters" type="button">Reset</button></div><fieldset><legend>Event type</legend><label><input name="category" type="checkbox" value="music"/> Music</label><label><input name="category" type="checkbox" value="sports"/> Sports</label><label><input name="category" type="checkbox" value="festival"/> Festivals</label><label><input name="category" type="checkbox" value="theatre"/> Theatre</label><label><input name="category" type="checkbox" value="arts"/> Arts &amp; Culture</label><label><input name="category" type="checkbox" value="community"/> Community</label></fieldset><fieldset><legend>Time</legend><label><input checked="" name="when" type="radio" value="all"/> All dates</label><label><input name="when" type="radio" value="week"/> Next 7 days</label><label><input name="when" type="radio" value="month"/> This month</label></fieldset></aside>
+<div><div aria-live="polite" class="inner-results__grid" id="resultGrid"></div><div class="inner-results__empty" hidden="" id="resultEmpty"><h3>No matching events</h3><p>Try another search or reset your filters.</p><button class="inner-btn inner-btn--gold" id="clearResultEmpty" type="button">Clear filters</button></div></div></div></section></main><footer aria-label="Open Tickets footer" class="ot-footer" id="siteFooter">
+<div class="ot-footer__container container-xxl">
+<div class="ot-footer__grid">
+<div class="ot-footer__brand">
+<a aria-label="Open Tickets home" href="index.html">
+<img alt="Open Tickets" class="ot-footer__brand-image" decoding="async" height="150" loading="lazy" src="assets/images/branding/open-tickets-logo.png" width="286">
+</img></a>
+<p class="ot-footer__tagline">Live Events. Made Easy.</p>
+<p class="ot-footer__description">Explore concerts, sports, theatre, comedy and more across South Africa.</p>
+<!-- Social artwork only. Never invent social profile links. -->
+<div aria-label="Social profiles pending verification" class="ot-footer__socials">
+<ul aria-hidden="true" class="ot-footer__social-list">
+<li><span class="ot-footer__social-icon ot-social--facebook" title="Facebook profile: pending confirmation"><svg viewbox="0 0 24 24"><path d="M13.6 22v-8.8h3l.5-3.5h-3.5V7.4c0-1.1.3-1.8 1.9-1.8h1.9V2.5c-.3-.1-1.4-.2-2.7-.2-2.8 0-4.7 1.7-4.7 4.8v2.6H7v3.5h3v8.8h3.6Z"></path></svg></span></li>
+<li><span class="ot-footer__social-icon ot-social--instagram" title="Instagram profile: pending confirmation"><svg fill="none" viewbox="0 0 24 24"><rect height="18" rx="5" stroke="currentColor" stroke-width="2" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"></circle><circle cx="17.7" cy="6.4" fill="currentColor" r="1.2"></circle></svg></span></li>
+<li><span class="ot-footer__social-icon ot-social--x" title="X profile: pending confirmation"><svg viewbox="0 0 24 24"><path d="M18.9 2H22l-7.4 8.5L23 22h-6.6l-5.2-7.1L5 22H1.8l8-9.3L1 2h6.8l4.7 6.4L18.9 2Zm-1.2 18h1.8L6.7 3.9H4.8L17.7 20Z"></path></svg></span></li>
+<li><span class="ot-footer__social-icon ot-social--youtube" title="YouTube profile: pending confirmation"><svg viewbox="0 0 24 24"><path d="M21.2 7.3a2.8 2.8 0 0 0-2-2C17.5 4.8 12 4.8 12 4.8s-5.5 0-7.2.5a2.8 2.8 0 0 0-2 2C2.3 9 2.3 12 2.3 12s0 3 .5 4.7a2.8 2.8 0 0 0 2 2c1.7.5 7.2.5 7.2.5s5.5 0 7.2-.5a2.8 2.8 0 0 0 2-2c.5-1.7.5-4.7.5-4.7s0-3-.5-4.7ZM10 15.5v-7l6 3.5-6 3.5Z"></path></svg></span></li>
+</ul>
+<span class="visually-hidden">Official social account links will be added after verification.</span>
+</div>
+</div>
+<nav aria-labelledby="footerQuickLinks" class="ot-footer__col">
+<h2 class="ot-footer__heading" id="footerQuickLinks">Quick Links</h2>
+<ul class="ot-footer__links">
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html">Events</a></li>
+<li><a href="faqs.html">FAQs</a></li>
+<li><a href="https://opentickets.co.za/support">Contact</a></li>
+</ul>
+</nav>
+<div aria-labelledby="footerSupport" class="ot-footer__col ot-footer__support-col">
+<h2 class="ot-footer__heading" id="footerSupport">Customer Support</h2>
+<ul class="ot-footer__contact-list">
+<li><svg aria-hidden="true" class="ot-footer__contact-icon" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m4 7 8 6 8-6"></path></svg><a href="mailto:info@opentickets.co.za">info@opentickets.co.za</a></li>
+<li><svg aria-hidden="true" class="ot-footer__contact-icon" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m4 7 8 6 8-6"></path></svg><a href="mailto:tickets@opentickets.co.za">tickets@opentickets.co.za</a></li>
+<li><svg aria-hidden="true" class="ot-footer__contact-icon" viewbox="0 0 24 24"><path d="M5 17v3l4-3h9a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v8a3 3 0 0 0 2 3Z"></path><path d="M8 9h8m-8 4h5"></path></svg><a href="https://opentickets.co.za/support">Chat with Support</a></li>
+</ul>
+</div>
+<nav aria-labelledby="footerLegal" class="ot-footer__col">
+<h2 class="ot-footer__heading" id="footerLegal">Legal</h2>
+<ul class="ot-footer__links">
+<li><a href="https://opentickets.co.za/page/privacy-policy">Privacy Policy</a></li>
+<li><a href="https://opentickets.co.za/page/terms-and-conditions">Terms and Conditions</a></li>
+</ul>
+</nav>
+<div aria-labelledby="footerLanguage" class="ot-footer__col ot-footer__language-col">
+<h2 class="ot-footer__heading" id="footerLanguage">Language</h2>
+<div class="ot-footer__lang">
+<label class="visually-hidden" for="footerLanguageSelect">Choose a language on Open Tickets</label>
+<select aria-label="Choose a language on Open Tickets" id="footerLanguageSelect" name="language">
+<option selected="" value="en">English</option>
+<option value="af">Afrikaans</option>
+<option value="zu">isiZulu</option>
+<option value="xh">isiXhosa</option>
+<option value="st">Sesotho</option>
+<option value="de">Deutsch</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="pt">Português</option>
+</select>
+<svg aria-hidden="true" class="ot-footer__lang-chevron" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</div>
+</div>
+</div>
+<div class="ot-footer__bottom">
+<p class="ot-footer__copyright">© 2024–2026 Open Tickets. All rights reserved.</p>
+<button aria-label="Back to top" class="ot-footer__back-top" id="footerBackToTop" title="Back to top" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m6 14 6-6 6 6"></path></svg>
+</button>
+</div>
+</div>
+</footer><svg aria-hidden="true" class="ot-svg-sprite" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="ot-i-search" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.8"></circle><path d="m16 16 4.6 4.6"></path></symbol>
+<symbol id="ot-i-arrow" viewbox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"></path></symbol>
+<symbol id="ot-i-pin" viewbox="0 0 24 24"><path d="M12 22s7-6.7 7-12a7 7 0 0 0-14 0c0 5.3 7 12 7 12Z"></path><circle cx="12" cy="10" r="2.5"></circle></symbol>
+<symbol id="ot-i-chevron" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></symbol>
+<symbol id="ot-i-chevron-left" viewbox="0 0 24 24"><path d="m15 5-7 7 7 7"></path></symbol>
+<symbol id="ot-i-chevron-right" viewbox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></symbol>
+<symbol id="ot-i-user" viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 21c.4-4 3.1-6 7.5-6s7.1 2 7.5 6"></path></symbol>
+<symbol id="ot-i-menu" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></symbol>
+<symbol id="ot-i-heart" viewbox="0 0 24 24"><path d="M20.8 8.2c0 4.5-7 9.6-8.8 11-1.8-1.4-8.8-6.5-8.8-11A4.8 4.8 0 0 1 12 5.4a4.8 4.8 0 0 1 8.8 2.8Z"></path></symbol>
+<symbol id="ot-i-clock" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></symbol>
+<symbol id="ot-i-calendar" viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M7 3v4m10-4v4M3 10h18"></path></symbol>
+<!-- Event discovery icons: outlined, matching 24px viewBox and header stroke. -->
+<symbol id="ot-i-music" viewbox="0 0 24 24"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></symbol>
+<symbol id="ot-i-football" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m9 9 3-2 3 2-1.1 3.5H10.1L9 9ZM12 7V3m-2 9.5-3 3m6.9-3 3.1 3M7 15.5l-2.7 1m12.7-1 2.7 1M9.2 19l-1 1.2m6.6-1.2 1 1.2"></path></symbol>
+<symbol id="ot-i-theatre" viewbox="0 0 24 24"><path d="M3 4h9v8a5 5 0 0 1-4.5 5A5 5 0 0 1 3 12V4Zm9 2h9v6c0 4.5-2.9 8-7 8-2 0-3.7-.8-5-2.2"></path><path d="M5.5 8h.1m4 0h.1M5.5 12c.7 1 2.9 1 3.6 0M15 9h.1m3.5 0h.1m-4 4c.9-.8 3-.8 4 0"></path></symbol>
+<symbol id="ot-i-palette" viewbox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1.2a2.3 2.3 0 0 0 1.7-3.8c-.7-.7-1-1.1-1-1.6 0-.8.6-1.5 1.5-1.5h2.3A3.3 3.3 0 0 0 21 10.8 8.9 8.9 0 0 0 12 3Z"></path><circle cx="7" cy="10" r="1"></circle><circle cx="10" cy="6.8" r="1"></circle><circle cx="15" cy="7.2" r="1"></circle><circle cx="7.5" cy="15" r="1"></circle></symbol>
+<symbol id="ot-i-family" viewbox="0 0 24 24"><circle cx="9" cy="7" r="3"></circle><circle cx="18" cy="9" r="2.5"></circle><path d="M3 20v-3.5a6 6 0 0 1 12 0V20H3Zm12 0h6v-3a4.5 4.5 0 0 0-4.7-4.5"></path></symbol>
+<symbol id="ot-i-smile" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8 14.5c1.8 2.8 6.2 2.8 8 0M8.5 9h.01m7 0h.01" stroke-width="2.4"></path></symbol>
+<symbol id="ot-i-tent" viewbox="0 0 24 24"><path d="M3 20 11.8 4 21 20H3Zm9-16v16M8.5 20 12 14l3.5 6M4 20H2m20 0h-1"></path></symbol>
+<symbol id="ot-i-wine" viewbox="0 0 24 24"><path d="M5 3h14l-1.5 7a5.5 5.5 0 0 1-11 0L5 3Zm7 12v6m-5 0h10M6 9h12"></path></symbol>
+<symbol id="ot-i-sliders" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path><circle cx="9" cy="6" fill="#061320" r="2"></circle><circle cx="16" cy="12" fill="#061320" r="2"></circle><circle cx="10" cy="18" fill="#061320" r="2"></circle></symbol>
+<symbol id="ot-i-refresh" viewbox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"></path><path d="M5.5 9a8 8 0 0 1 13.8-2L20 12M4 12l.7 4a8 8 0 0 0 13.8-1"></path></symbol>
+</defs></svg><script defer="" src="assets/js/bootstrap.bundle.min.js"></script>
+<script defer="" src="assets/js/footer.js"></script>
+<script defer="" src="assets/js/events-data.js"></script>
+<script defer="" src="assets/js/inner-pages.js"></script>
+<script defer="" src="assets/js/i18n-data.js"></script>
+<script defer="" src="assets/js/i18n-inner.js"></script>
+<script defer src="assets/js/i18n-v28.js"></script>
+<script defer="" src="assets/js/i18n.js"></script></body></html>

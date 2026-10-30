@@ -1,0 +1,35 @@
+/* V21 — language dropdown and multi-line locale text resilience */
+.ot-language__menu {max-height:min(70vh,440px);overflow-y:auto;overscroll-behavior:contain;}
+.ot-category-card__label,.ot-upcoming-card h3,.ot-benefits__title {overflow-wrap:break-word;}
+.ot-hero__copy h1,.ot-live__title {text-wrap:balance;}
+.ot-footer__language-col select{min-width:145px;max-width:100%;}
+.ot-discovery__category {flex:0 0 auto;}
+.ot-upcoming-card__cta,.ot-event-card__cta{white-space:normal;text-align:center;}
+@media(max-width:767px){.ot-live__title{max-width:100%;overflow-wrap:break-word;}.ot-footer__language-col select{min-width:0;width:100%;}}
+/* Longer translated menu labels need additional room on laptops. */
+@media (min-width:992px) and (max-width:1499.98px){
+  .ot-header__inner{gap:clamp(8px,1vw,15px);padding-inline:clamp(13px,1.6vw,24px)}
+  .ot-header__location{display:none}
+  .ot-primary-nav{gap:clamp(7px,.68vw,11px)}
+  .ot-primary-nav__link{font-size:clamp(10px,.76vw,11px)}
+  .ot-header-search{width:clamp(140px,13vw,175px);flex-shrink:1}
+  .ot-header__actions{gap:clamp(6px,.7vw,10px)}
+  .ot-account-button{min-width:0;padding-inline:11px}
+}
+@media (min-width:992px) and (max-width:1249.98px){
+  .ot-primary-nav,.ot-header-search,.ot-account-button{display:none!important}
+  .ot-mobile-toggle{display:grid!important}
+  .ot-header__actions{margin-left:auto}
+}
+/* Long category/heading translations wrap naturally instead of widening the page. */
+.ot-upcoming__title-group{min-width:0;flex:1 1 auto;}
+.ot-upcoming__title-group h2{min-width:0;overflow-wrap:break-word;}
+.ot-upcoming__rule{flex:0 0 clamp(20px,2vw,36px);}
+@media (max-width:599.98px){
+ .ot-upcoming__title-group h2{font-size:clamp(19px,6vw,24px);}
+ .ot-upcoming__toolbar{min-width:0;}
+}
+@media (min-width:992px) and (max-width:1199.98px){
+ .ot-discovery__submit{white-space:normal;text-align:center;min-width:0;gap:4px;padding-inline:7px;font-size:11px;line-height:1.2;}
+ .ot-discovery__submit .ot-icon{flex:0 0 16px;}
+}
